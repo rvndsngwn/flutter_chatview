@@ -23,3 +23,5 @@ doc/api/
 .flutter-plugins
 /.flutter-plugins-dependencies
 chat_ui.iml
+.history/
+.vscode/
