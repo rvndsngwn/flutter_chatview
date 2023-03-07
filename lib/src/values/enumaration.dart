@@ -27,7 +27,10 @@ enum MessageType {
 
   /// Only supported on android and ios
   voice,
-  custom
+  custom;
+
+  String toJson() => name;
+  static MessageType fromJson(String json) => values.byName(json);
 }
 
 /// Types of states

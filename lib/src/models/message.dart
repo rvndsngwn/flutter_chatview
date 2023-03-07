@@ -77,7 +77,7 @@ class Message {
         sendBy: json["sendBy"],
         replyMessage: ReplyMessage.fromJson(json["reply_message"]),
         reaction: Reaction.fromJson(json["reaction"]),
-        messageType: json["message_type"],
+        messageType: MessageType.fromJson(json["message_type"]),
         voiceMessageDuration: json["voice_message_duration"],
       );
 
@@ -88,7 +88,7 @@ class Message {
         'sendBy': sendBy,
         'reply_message': replyMessage.toJson(),
         'reaction': reaction.toJson(),
-        'message_type': messageType,
+        'message_type': messageType.toJson(),
         'voice_message_duration': voiceMessageDuration,
       };
 }
