@@ -28,13 +28,15 @@ enum MessageType {
   /// Only supported on android and ios
   voice,
   custom;
-
-  String toJson() => name;
-  static MessageType fromJson(String json) => values.byName(json);
 }
 
 /// Types of states
-enum ChatViewState { hasMessages, noData, loading, error }
+enum ChatViewState {
+  hasMessages,
+  noData,
+  loading,
+  error;
+}
 
 extension ChatViewStateExtension on ChatViewState {
   bool get hasMessages => this == ChatViewState.hasMessages;
