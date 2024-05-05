@@ -28,8 +28,7 @@ import 'package:flutter/material.dart';
 import '../values/typedefs.dart';
 
 class EmojiPickerWidget extends StatelessWidget {
-  const EmojiPickerWidget({Key? key, required this.onSelected})
-      : super(key: key);
+  const EmojiPickerWidget({super.key, required this.onSelected});
 
   /// Provides callback when user selects emoji.
   final StringCallback onSelected;
@@ -59,12 +58,17 @@ class EmojiPickerWidget extends StatelessWidget {
               onEmojiSelected: (Category? category, Emoji emoji) =>
                   onSelected(emoji.emoji),
               config: Config(
-                columns: 7,
-                emojiSizeMax: 32 * ((!kIsWeb && Platform.isIOS) ? 1.30 : 1.0),
-                initCategory: Category.RECENT,
-                bgColor: Colors.white,
-                // showRecentsTab: false,
-                recentsLimit: 28,
+                height: 256,
+                checkPlatformCompatibility: true,
+                emojiViewConfig: EmojiViewConfig(
+                  // Issue: https://github.com/flutter/flutter/issues/28894
+                  emojiSizeMax: 32 * ((!kIsWeb && Platform.isIOS) ? 1.30 : 1.0),
+                ),
+                swapCategoryAndBottomBar: false,
+                skinToneConfig: const SkinToneConfig(),
+                categoryViewConfig: const CategoryViewConfig(),
+                bottomActionBarConfig: const BottomActionBarConfig(),
+                searchViewConfig: const SearchViewConfig(),
               ),
             ),
           ),

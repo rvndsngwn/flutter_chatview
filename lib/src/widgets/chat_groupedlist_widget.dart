@@ -46,6 +46,7 @@ class ChatGroupedListWidget extends StatefulWidget {
     this.swipeToReplyConfig,
     this.repliedMessageConfig,
     this.typeIndicatorConfig,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   }) : super(key: key);
 
   /// Allow user to swipe to see time while reaction pop is not open.
@@ -90,6 +91,8 @@ class ChatGroupedListWidget extends StatefulWidget {
   /// Provide flag for turn on/off to see message crated time view when user
   /// swipe whole chat.
   final bool isEnableSwipeToSeeTime;
+
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
 
   @override
   State<ChatGroupedListWidget> createState() => _ChatGroupedListWidgetState();
@@ -164,6 +167,7 @@ class _ChatGroupedListWidgetState extends State<ChatGroupedListWidget>
       physics: showPopUp ? const NeverScrollableScrollPhysics() : null,
       padding: EdgeInsets.only(bottom: showTypingIndicator ? 50 : 0),
       controller: widget.scrollController,
+      keyboardDismissBehavior: widget.keyboardDismissBehavior,
       child: Column(
         children: [
           GestureDetector(

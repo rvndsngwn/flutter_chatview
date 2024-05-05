@@ -33,7 +33,7 @@ import 'reply_popup_widget.dart';
 
 class ChatListWidget extends StatefulWidget {
   const ChatListWidget({
-    Key? key,
+    super.key,
     required this.chatController,
     required this.chatBackgroundConfig,
     required this.showTypingIndicator,
@@ -50,7 +50,7 @@ class ChatListWidget extends StatefulWidget {
     this.replyPopupConfig,
     this.loadMoreData,
     this.isLastPage,
-  }) : super(key: key);
+  });
 
   /// Provides controller for accessing few function for running chat.
   final ChatController chatController;
@@ -186,6 +186,9 @@ class _ChatListWidgetState extends State<ChatListWidget>
                 messageConfig: widget.messageConfig,
                 chatBubbleConfig: widget.chatBubbleConfig,
                 typeIndicatorConfig: widget.typeIndicatorConfig,
+                keyboardDismissBehavior:
+                    featureActiveConfig?.keyboardDismissBehavior ??
+                        ScrollViewKeyboardDismissBehavior.manual,
                 onChatBubbleLongPress: (yCoordinate, xCoordinate, message) {
                   if (featureActiveConfig?.enableReactionPopup ?? false) {
                     _reactionPopupKey.currentState?.refreshWidget(

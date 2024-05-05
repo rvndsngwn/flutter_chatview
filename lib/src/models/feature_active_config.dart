@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 class FeatureActiveConfig {
   const FeatureActiveConfig({
     this.enableSwipeToReply = true,
@@ -10,8 +12,11 @@ class FeatureActiveConfig {
     this.enablePagination = false,
     this.enableChatSeparator = true,
     this.enableDoubleTapToLike = true,
+    this.keyboardDismissBehavior = ScrollViewKeyboardDismissBehavior.manual,
   });
 
+  
+  final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
   /// Used for enable/disable swipe to reply.
   final bool enableSwipeToReply;
 
