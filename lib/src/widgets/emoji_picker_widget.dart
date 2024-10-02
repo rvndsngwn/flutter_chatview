@@ -64,7 +64,6 @@ class EmojiPickerWidget extends StatelessWidget {
                   // Issue: https://github.com/flutter/flutter/issues/28894
                   emojiSizeMax: 32 * ((!kIsWeb && Platform.isIOS) ? 1.30 : 1.0),
                 ),
-                swapCategoryAndBottomBar: false,
                 skinToneConfig: const SkinToneConfig(),
                 categoryViewConfig: const CategoryViewConfig(),
                 bottomActionBarConfig: const BottomActionBarConfig(),
